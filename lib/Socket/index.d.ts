@@ -186,6 +186,7 @@ declare const makeWASocket: (config: UserFacingSocketConfig) => {
     requestPairingCode: (phoneNumber: string, code?: string) => Promise<string>
     waitForConnectionUpdate: (check: (u: Partial<import("../Types").ConnectionState>) => boolean | undefined, timeoutMs?: number | undefined) => Promise<void>
     sendWAMBuffer: (wamBuffer: Buffer) => Promise<import("..").BinaryNode>
+    onWhatsApp: (...phoneNumbers: string[]) => Promise<{ jid:string; exists:boolean;}[]|undefined>
 }
 
 export default makeWASocket
